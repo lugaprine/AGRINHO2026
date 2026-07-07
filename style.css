@@ -2,9 +2,10 @@
 
 body {
     font-family: 'Georgia', cursive;
-    background: linear-gradient(135deg, #0f2b0f, #1a3c1a, #2e5c2e);
+    background: linear-gradient(135deg, #0a1f0a, #1a3c1a, #0f2b0f);
     color: #e0f7e0;
     overflow-x: hidden;
+    min-height: 100vh;
 }
 
 body::before {
@@ -12,120 +13,164 @@ body::before {
     position: fixed;
     top: 0; left: 0;
     width: 100%; height: 100%;
-    background: radial-gradient(circle at 20% 30%, rgba(255,215,0,0.2) 0%, transparent 50%),
-                radial-gradient(circle at 80% 70%, rgba(0,255,127,0.15) 0%, transparent 50%);
+    background: 
+        radial-gradient(circle at 20% 30%, rgba(255, 215, 0, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 80% 70%, rgba(0, 255, 127, 0.12) 0%, transparent 60%);
     z-index: -1;
     pointer-events: none;
 }
 
 header {
     text-align: center;
-    padding: 3rem 1rem;
-    background: rgba(0,0,0,0.4);
-    border-bottom: 4px solid #ffd700;
-    box-shadow: 0 0 30px rgba(255,215,0,0.6);
+    padding: 4rem 1rem 2.5rem;
+    background: rgba(0, 0, 0, 0.5);
+    border-bottom: 5px solid #ffd700;
 }
 
 h1 {
-    font-size: 3.5rem;
-    text-shadow: 0 0 15px #ffd700, 0 0 30px #32cd32;
+    font-size: 3.2rem;
+    text-shadow: 0 0 20px #ffd700, 0 0 40px #32cd32;
     color: #ffd700;
 }
 
 .imagens {
+    padding: 2rem;
+    text-align: center;
+}
+
+.image-grid {
     display: flex;
     gap: 2rem;
     justify-content: center;
     flex-wrap: wrap;
-    padding: 2rem;
 }
 
 .image-container {
-    text-align: center;
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.08);
     padding: 1rem;
-    border-radius: 20px;
-    border: 3px solid #ffd700;
-    box-shadow: 0 0 25px rgba(255,215,0,0.5);
-    transition: transform 0.4s;
+    border-radius: 25px;
+    border: 4px solid #ffd700;
+    box-shadow: 0 0 30px rgba(255,215,0,0.4);
+    transition: all 0.4s;
 }
 
-.image-container:hover { transform: scale(1.05) rotate(2deg); }
+.image-container:hover {
+    transform: translateY(-10px) scale(1.03);
+    box-shadow: 0 0 50px rgba(255,215,0,0.6);
+}
 
 .fantasy-img {
     width: 100%;
-    max-width: 500px;
-    height: 300px;
+    max-width: 520px;
+    height: 340px;
     object-fit: cover;
-    border-radius: 15px;
-    border: 4px solid #98fb98;
+    border-radius: 18px;
+    border: 5px solid #98fb98;
 }
 
-.flashcards { text-align: center; padding: 2rem; }
+.controls {
+    text-align: center;
+    margin: 1.5rem 0;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+}
+
+#counter {
+    font-size: 1.4rem;
+    background: rgba(0,0,0,0.4);
+    padding: 0.5rem 1.5rem;
+    border-radius: 30px;
+    border: 2px solid #ffd700;
+}
+
+.magic-btn {
+    padding: 0.9rem 2rem;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    transition: all 0.3s;
+    font-weight: bold;
+}
+
+.magic-btn.primary {
+    background: linear-gradient(#ffd700, #ffa500);
+    color: #0f2b0f;
+    box-shadow: 0 0 25px #ffd700;
+}
+
+.magic-btn:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 40px #ffd700;
+}
 
 .deck {
     display: flex;
     justify-content: center;
     gap: 2rem;
     flex-wrap: wrap;
+    padding: 1rem;
 }
 
 .flashcard {
-    width: 320px;
-    height: 420px;
-    perspective: 1000px;
+    width: 340px;
+    height: 440px;
+    perspective: 1200px;
     cursor: pointer;
 }
 
 .card-inner {
-    position: relative;
     width: 100%;
     height: 100%;
-    transition: transform 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55);
+    transition: transform 0.7s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     transform-style: preserve-3d;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-    border-radius: 20px;
+    border-radius: 22px;
+    box-shadow: 0 20px 40px rgba(0,0,0,0.7);
 }
 
-.flashcard.flipped .card-inner { transform: rotateY(180deg); }
+.flashcard.flipped .card-inner {
+    transform: rotateY(180deg);
+}
 
+/* Resto do CSS mantido igual (card-front, card-back, etc.) */
 .card-front, .card-back {
     position: absolute;
     width: 100%;
     height: 100%;
     backface-visibility: hidden;
-    border-radius: 20px;
+    border-radius: 22px;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2rem;
+    text-align: center;
 }
 
 .card-front {
-    background: linear-gradient(145deg, #228b22, #006400);
-    border: 5px solid #ffd700;
+    background: linear-gradient(145deg, #1e6b1e, #0f4d0f);
+    border: 6px solid #ffd700;
 }
 
 .card-back {
-    background: linear-gradient(145deg, #4b0082, #8b008b);
-    border: 5px solid #ffd700;
+    background: linear-gradient(145deg, #4b0082, #6b238b);
+    border: 6px solid #ffd700;
     transform: rotateY(180deg);
 }
 
-.magic-btn {
-    margin: 2rem auto;
-    padding: 1rem 3rem;
-    font-size: 1.4rem;
-    background: linear-gradient(#ffd700, #ffa500);
-    color: #0f2b0f;
-    border: none;
-    border-radius: 50px;
-    cursor: pointer;
-    box-shadow: 0 0 20px #ffd700;
+.card-title {
+    font-size: 2rem;
+    margin-bottom: 1.2rem;
+    color: #ffd700;
+    text-shadow: 0 0 12px #fff;
 }
 
-.magic-btn:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 40px #ffd700;
+footer {
+    text-align: center;
+    padding: 2.5rem;
+    background: rgba(0,0,0,0.7);
+    margin-top: 3rem;
+    border-top: 4px solid #32cd32;
 }

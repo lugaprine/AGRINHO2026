@@ -3,37 +3,45 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Fantasia Agropecuária</title>
+    <title>🌾 Reino Encantado da Agropecuária</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <header>
         <h1>🌾 Reino Místico da Agropecuária 🌱</h1>
-        <p>Descubra os segredos encantados da agricultura e pecuária!</p>
+        <p>Explore os segredos ancestrais da terra em um mundo de fantasia</p>
     </header>
 
     <main>
+        <!-- Imagens -->
         <section class="imagens">
-            <h2>Visões Encantadas</h2>
-            <div class="image-container">
-                <img src="https://picsum.photos/id/1015/600/400" alt="Fazenda Fantástica" class="fantasy-img">
-                <figcaption>Reino das Colheitas Mágicas</figcaption>
-            </div>
-            <div class="image-container">
-                <img src="https://picsum.photos/id/107/600/400" alt="Animais Místicos" class="fantasy-img">
-                <figcaption>Rebanho dos Espíritos da Terra</figcaption>
+            <h2>Visões Encantadas do Reino</h2>
+            <div class="image-grid">
+                <div class="image-container">
+                    <img src="https://picsum.photos/id/1015/800/500" alt="Fazenda Fantástica" class="fantasy-img">
+                    <figcaption>Reino das Colheitas Eternas</figcaption>
+                </div>
+                <div class="image-container">
+                    <img src="https://picsum.photos/id/107/800/500" alt="Rebanho Místico" class="fantasy-img">
+                    <figcaption>Espíritos da Terra e Rebanho Sagrado</figcaption>
+                </div>
             </div>
         </section>
 
+        <!-- Flashcards -->
         <section class="flashcards">
-            <h2>Cartas de Conhecimento Encantado</h2>
+            <h2>Cartas de Sabedoria Ancestral</h2>
+            <div class="controls">
+                <span id="counter">0 / 18</span>
+                <button id="study-btn" class="magic-btn secondary">Modo Estudo</button>
+                <button id="shuffle-btn" class="magic-btn">Embaralhar ✨</button>
+            </div>
             <div class="deck" id="flashcard-deck"></div>
-            <button id="next-btn" class="magic-btn">Próxima Carta ✨</button>
         </section>
     </main>
 
     <footer>
-        <p>Feito com magia para amantes da agropecuária</p>
+        <p>Feito com magia da terra • Agropecuária Fantástica</p>
     </footer>
 
     <script src="script.js"></script>
